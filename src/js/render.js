@@ -1,7 +1,8 @@
-/* eslint-disable no-param-reassign */
 /* eslint-disable linebreak-style */
-/* eslint-disable no-alert */
+/* eslint-disable no-console */
+/* eslint-disable no-param-reassign */
 
+/* eslint-disable no-alert */
 
 export default class Render {
   constructor() {

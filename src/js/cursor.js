@@ -1,5 +1,5 @@
-/* eslint-disable no-param-reassign */
 /* eslint-disable linebreak-style */
+/* eslint-disable no-param-reassign */
 // import Render from './render';
 
 export default class Cursor {

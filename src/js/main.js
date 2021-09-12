@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-console */
+/* eslint-disable no-alert */
 /* eslint-disable class-methods-use-this */
 
 import Render from './render';
