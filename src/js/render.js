@@ -7,7 +7,6 @@
 export default class Render {
   constructor() {
     this.boxes = document.querySelectorAll('.box');
-    this.missedMove = 0;
   }
 
   renderer() {
@@ -18,8 +17,5 @@ export default class Render {
     });
     const index = Math.floor(Math.random() * 16);
     this.boxes[index].classList.add('box_with_goblin');
-    this.missedMove += 1;
-    console.log(this.missedMove);
-    return this.missedMove;
   }
 }

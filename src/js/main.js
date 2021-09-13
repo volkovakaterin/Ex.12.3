@@ -9,32 +9,38 @@ import Cursor from './cursor';
 const render = new Render();
 const cursor = new Cursor();
 
-export default class Game {
+class Game {
   constructor() {
     this.missedMove = 0;
+    this.point = 0;
+    this.area = document.querySelector('#area');
   }
 
   init() {
-    function missedMoveMinus() {
-      Game.missedMove -= 1;
-      console.log(Game.missedMove);
-    }
-    function gameOver() {
-      if (Game.missedMove === 5) {
-        alert('Игра окончена!');
-      }
-    }
     document.addEventListener('DOMContentLoaded', () => {
       setInterval(() => {
-        Game.missedMove = render.renderer();
-        gameOver();
+        render.renderer();
+        this.missedMove += 1;
+        console.log(this.missedMove);
+        this.gameOver();
       }, 1000);
     });
-    async function f() { cursor.changeCursor(); }
-    f().then(missedMoveMinus());
+    this.area.addEventListener('mousedown', (event) => {
+      const { target } = event;
+      if (target.classList.contains('box_with_goblin')) {
+        cursor.changeCursor(event);
+        this.missedMove -= 1;
+        this.point += 1;
+      }
+    });
+  }
+
+  gameOver() {
+    if (this.missedMove === 5) {
+      alert('Игра окончена!');
+    }
   }
 }
 
 const game = new Game();
 game.init();
-// console.log(game.missedMove);
